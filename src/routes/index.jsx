@@ -1,5 +1,6 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch } from "react-router-dom";
+import Route from "./Route";
 import Darshboard from "../pages/Dashboard/Darshboard";
 import Profile from "../pages/Profile/Profile";
 import SignIn from "../pages/SignIn/SignIn";
@@ -10,9 +11,9 @@ export default function index() {
     <Switch>
       <Route exact path="/" component={SignIn} />
       <Route path="/register" component={SignUp} />
-      
-      <Route path="/dashboard" component={Darshboard} />
-      <Route path="/profile" component={Profile} />
+
+      <Route isPrivate path="/dashboard" component={Darshboard} />
+      <Route isPrivate path="/profile" component={Profile} />
     </Switch>
   );
 }
