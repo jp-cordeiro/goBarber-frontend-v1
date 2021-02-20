@@ -1,18 +1,22 @@
-import React from 'react';
-import './styles.scss';
+import React, { useEffect, useState } from "react";
+import { Input as UnformInput } from "@rocketseat/unform";
+import "./styles.scss";
 
 export default function Input({ label, ...restProps }) {
+  const [value, setValue] = useState(null);
+
   return (
     <div className="group">
-      <input
+      <UnformInput
         type="text"
         className="form-input"
         {...restProps}
+        onChange={({ target }) => setValue(target.value)}
       />
       {label ? (
         <label
           className={`${
-            restProps.value.length ? 'shrink' : ''
+            value && value.length ? "shrink" : ""
           } form-input-label`}
         >
           {label}
